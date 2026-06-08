@@ -1,0 +1,15 @@
+---
+
+- name: create user
+  hosts: all
+  
+  vars_prompt:
+    - name: username
+      prompt: Enter the user name
+
+  tasks:
+    - name: Create user
+      user:
+          name: "{{ username }}"
+          state: present
+      when: ansible_distribution == "Ubuntu" 

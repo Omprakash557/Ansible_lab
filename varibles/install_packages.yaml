@@ -1,0 +1,13 @@
+---
+- name: Install Packages
+  hosts: all
+
+  vars:
+    apps:
+      - git
+      - nginx
+  tasks:
+    - package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ apps }}"
