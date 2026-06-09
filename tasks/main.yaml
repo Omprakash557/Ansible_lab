@@ -1,0 +1,15 @@
+---
+
+- name: print the file
+  hosts: all
+
+  tasks:
+    - name: Excute the task
+      shell: echo "Task excuted"
+      notify:
+        - Print Handler Message
+
+  handlers:
+    - name: Print Handler Message
+      shell: echo "Handler Excuted"
+

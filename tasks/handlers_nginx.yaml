@@ -1,0 +1,19 @@
+---
+
+- name: check handlers
+  hosts: all
+
+  tasks:
+    - name: check handlers
+      copy:
+        src: ../files/nginx.conf
+        dest: ~/
+      notify:
+        - Run handlers
+  
+
+  handlers:
+    - name: Run handlers
+      service:
+        name: nginx
+        state: restarted
